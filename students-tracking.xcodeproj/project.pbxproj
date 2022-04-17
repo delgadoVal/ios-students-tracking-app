@@ -12,6 +12,8 @@
 		3B047D6028061BC5004271C0 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 3B047D5F28061BC5004271C0 /* FirebaseAuthCombine-Community */; };
 		3B047D6228061BC5004271C0 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 3B047D6128061BC5004271C0 /* FirebaseDatabase */; };
 		3B047D6428061BC5004271C0 /* FirebaseDatabaseSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 3B047D6328061BC5004271C0 /* FirebaseDatabaseSwift-Beta */; };
+		3B3EB876280CCCB700C71208 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EB875280CCCB700C71208 /* SigninViewController.swift */; };
+		3B3EB879280CCD2200C71208 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EB878280CCD2200C71208 /* UserModel.swift */; };
 		3BBB7A6528063CA600C2E31B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB7A6428063CA600C2E31B /* ViewController.swift */; };
 		3BBB7A6828063CCD00C2E31B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB7A6728063CCD00C2E31B /* LoginViewController.swift */; };
 		3BBB7A6A28063CDE00C2E31B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB7A6928063CDE00C2E31B /* HomeViewController.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		3B047D5A28061AB4004271C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		3B3EB875280CCCB700C71208 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		3B3EB878280CCD2200C71208 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3BBB7A6428063CA600C2E31B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3BBB7A6728063CCD00C2E31B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BBB7A6928063CDE00C2E31B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -55,12 +59,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B3EB877280CCD0200C71208 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3B3EB878280CCD2200C71208 /* UserModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		3BBB7A6628063CB200C2E31B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				3BBB7A6428063CA600C2E31B /* ViewController.swift */,
 				3BBB7A6728063CCD00C2E31B /* LoginViewController.swift */,
 				3BBB7A6928063CDE00C2E31B /* HomeViewController.swift */,
+				3B3EB875280CCCB700C71208 /* SigninViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -92,6 +105,7 @@
 		3BF5A1852805174E00CDE093 /* students-tracking */ = {
 			isa = PBXGroup;
 			children = (
+				3B3EB877280CCD0200C71208 /* Models */,
 				3BBB7A6B280656C400C2E31B /* Utilities */,
 				3BBB7A6628063CB200C2E31B /* ViewControllers */,
 				3B047D5A28061AB4004271C0 /* GoogleService-Info.plist */,
@@ -191,8 +205,10 @@
 				3BF5A1912805174E00CDE093 /* students_tracking.xcdatamodeld in Sources */,
 				3BBB7A6528063CA600C2E31B /* ViewController.swift in Sources */,
 				3BBB7A6828063CCD00C2E31B /* LoginViewController.swift in Sources */,
+				3B3EB876280CCCB700C71208 /* SigninViewController.swift in Sources */,
 				3BBB7A6D280656DF00C2E31B /* Constants.swift in Sources */,
 				3BF5A1892805174E00CDE093 /* SceneDelegate.swift in Sources */,
+				3B3EB879280CCD2200C71208 /* UserModel.swift in Sources */,
 				3BBB7A6A28063CDE00C2E31B /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

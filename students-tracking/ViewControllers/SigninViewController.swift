@@ -1,39 +1,48 @@
 //
-//  LoginViewController.swift
+//  SigninViewController.swift
 //  students-tracking
 //
-//  Created by Vale Delgado on 12/04/22.
+//  Created by Vale Delgado on 16/04/22.
 //
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
-class LoginViewController: UIViewController {
-    
+class SigninViewController: UIViewController {
+
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var idField: UITextField!
     @IBOutlet weak var signinBtn: UIButton!
+    @IBOutlet weak var loginBtn: UIButton!
     
-
+    private lazy var dbRef : DatabaseReference = Database.database().reference().child("users/")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func login(_ sender: Any) {
+    @IBAction func signin(_ sender: Any) {
         let email = emailField.text
         let password = passwordField.text
         
-        if (email != nil && password != nil) {
-            Auth.auth().signIn(withEmail: email!, password: password!) {
+        if (email != nil && password != nil && nameField.text != nil && idField.text != nil) {
+            let newUser = UserModel(name: nameField.text!, id: idField.text!)
+            
+            Auth.auth().createUser(withEmail: email!, password: password!) {
                 result, error in
                 if let result = result, error == nil {
                     let uid = result.user.uid
                     let session = UserDefaults.standard
                     session.set(uid, forKey: "uid")
                     session.synchronize()
+                    
+                    self.dbRef.child(uid).setValue(newUser.getFirebaseStructure())
+                    
                     self.showHome()
                 }
             }
@@ -48,9 +57,9 @@ class LoginViewController: UIViewController {
         view.window?.makeKeyAndVisible()
     }
     
-    @IBAction func showSignin(_ sender: Any) {
-        let signin = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.signin) as? SigninViewController
-        view.window?.rootViewController = signin
+    @IBAction func showLogin(_ sender: Any) {
+        let login = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.login) as? LoginViewController
+        view.window?.rootViewController = login
         view.window?.makeKeyAndVisible()
     }
 }
