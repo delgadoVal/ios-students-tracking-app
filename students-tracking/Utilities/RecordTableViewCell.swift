@@ -10,6 +10,7 @@ import UIKit
 class RecordTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var hoursLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
