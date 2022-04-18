@@ -14,6 +14,7 @@
 		3B047D6428061BC5004271C0 /* FirebaseDatabaseSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 3B047D6328061BC5004271C0 /* FirebaseDatabaseSwift-Beta */; };
 		3B3EB876280CCCB700C71208 /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EB875280CCCB700C71208 /* SigninViewController.swift */; };
 		3B3EB879280CCD2200C71208 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EB878280CCD2200C71208 /* UserModel.swift */; };
+		3B3EB87B280CF8E600C71208 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EB87A280CF8E600C71208 /* CreateViewController.swift */; };
 		3BBB7A6528063CA600C2E31B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB7A6428063CA600C2E31B /* ViewController.swift */; };
 		3BBB7A6828063CCD00C2E31B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB7A6728063CCD00C2E31B /* LoginViewController.swift */; };
 		3BBB7A6A28063CDE00C2E31B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB7A6928063CDE00C2E31B /* HomeViewController.swift */; };
@@ -30,6 +31,7 @@
 		3B047D5A28061AB4004271C0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3B3EB875280CCCB700C71208 /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		3B3EB878280CCD2200C71208 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		3B3EB87A280CF8E600C71208 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		3BBB7A6428063CA600C2E31B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3BBB7A6728063CCD00C2E31B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BBB7A6928063CDE00C2E31B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				3BBB7A6728063CCD00C2E31B /* LoginViewController.swift */,
 				3BBB7A6928063CDE00C2E31B /* HomeViewController.swift */,
 				3B3EB875280CCCB700C71208 /* SigninViewController.swift */,
+				3B3EB87A280CF8E600C71208 /* CreateViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B3EB87B280CF8E600C71208 /* CreateViewController.swift in Sources */,
 				3BF5A1872805174E00CDE093 /* AppDelegate.swift in Sources */,
 				3BF5A1912805174E00CDE093 /* students_tracking.xcdatamodeld in Sources */,
 				3BBB7A6528063CA600C2E31B /* ViewController.swift in Sources */,

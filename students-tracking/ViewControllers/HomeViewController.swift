@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let uid = UserDefaults.standard.value(forKey: "uid") as? String
+        //let uid = UserDefaults.standard.value(forKey: "uid") as? String
         // Do any additional setup after loading the view.
     }
     
@@ -36,6 +36,8 @@ class HomeViewController: UIViewController {
         view.window?.rootViewController = login
         view.window?.makeKeyAndVisible()
     }
+    
+    @IBAction func homeUnwindAction(unwindSegue: UIStoryboardSegue){}
     
     /*
     // MARK: - Navigation

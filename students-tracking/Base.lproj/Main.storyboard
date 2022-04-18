@@ -12,7 +12,7 @@
         <scene sceneID="Nfk-Ff-j8t">
             <objects>
                 <navigationController navigationBarHidden="YES" id="YMh-98-o3e" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NMN-Xv-bAX">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="NMN-Xv-bAX">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -92,16 +92,28 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="i5d-SQ-OsC">
-                                <rect key="frame" x="0.0" y="74" width="414" height="72"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="152"/>
                                 <subviews>
+                                    <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbI-q2-sWC">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <items>
+                                            <navigationItem leftItemsSupplementBackButton="YES" id="VI5-Aq-xEq">
+                                                <barButtonItem key="rightBarButtonItem" title="Agregar" image="plus" catalog="system" id="CHT-Gx-Z0K">
+                                                    <connections>
+                                                        <segue destination="Qng-ya-7cT" kind="show" id="IB5-8f-cN9"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HELLO LOGGED IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4U-Im-RVj">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
+                                        <rect key="frame" x="0.0" y="54" width="414" height="44"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cU6-FJ-iRA">
-                                        <rect key="frame" x="0.0" y="41" width="414" height="31"/>
+                                        <rect key="frame" x="0.0" y="108" width="414" height="44"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Cerrar sesión"/>
                                         <connections>
@@ -114,12 +126,12 @@
                         <viewLayoutGuide key="safeArea" id="qYi-jp-Zq9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="i5d-SQ-OsC" firstAttribute="trailing" secondItem="qYi-jp-Zq9" secondAttribute="trailing" id="HwX-jT-H77"/>
-                            <constraint firstItem="i5d-SQ-OsC" firstAttribute="top" secondItem="qYi-jp-Zq9" secondAttribute="top" constant="30" id="JZe-dG-Af2"/>
-                            <constraint firstItem="i5d-SQ-OsC" firstAttribute="leading" secondItem="qYi-jp-Zq9" secondAttribute="leading" id="aRx-Va-jPJ"/>
+                            <constraint firstItem="i5d-SQ-OsC" firstAttribute="trailing" secondItem="qYi-jp-Zq9" secondAttribute="trailing" id="CDI-3v-xbV"/>
+                            <constraint firstItem="i5d-SQ-OsC" firstAttribute="top" secondItem="qYi-jp-Zq9" secondAttribute="top" id="Stj-bS-OuH"/>
+                            <constraint firstItem="i5d-SQ-OsC" firstAttribute="leading" secondItem="qYi-jp-Zq9" secondAttribute="leading" id="VVx-B4-clx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Sha-aV-oYl"/>
+                    <navigationItem key="navigationItem" id="42I-id-8TN"/>
                     <connections>
                         <outlet property="signoutBtn" destination="cU6-FJ-iRA" id="oWL-lu-O4n"/>
                     </connections>
@@ -199,8 +211,55 @@
             </objects>
             <point key="canvasLocation" x="67" y="652"/>
         </scene>
+        <!--Create View Controller-->
+        <scene sceneID="xuJ-Zx-xvw">
+            <objects>
+                <viewController id="Qng-ya-7cT" customClass="CreateViewController" customModule="students_tracking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vXV-Rn-u73">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JY5-3n-Hn3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="LLR-4T-NfE">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancelar" id="Efs-Wr-YXf">
+                                            <connections>
+                                                <segue destination="clv-aj-nL7" kind="unwind" unwindAction="homeUnwindActionWithUnwindSegue:" id="qg5-nS-Mns"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Listo" id="BLL-0Q-bbH">
+                                            <connections>
+                                                <action selector="addRecord:" destination="Qng-ya-7cT" id="28u-Lu-pg9"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="qUb-wD-xmK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JY5-3n-Hn3" firstAttribute="top" secondItem="vXV-Rn-u73" secondAttribute="top" id="6j2-x4-Iew"/>
+                            <constraint firstItem="JY5-3n-Hn3" firstAttribute="leading" secondItem="vXV-Rn-u73" secondAttribute="leading" id="pkJ-Ch-V9t"/>
+                            <constraint firstAttribute="trailing" secondItem="JY5-3n-Hn3" secondAttribute="trailing" id="yuJ-H7-imP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Koe-dj-KMx"/>
+                    <connections>
+                        <outlet property="cancelBtn" destination="Efs-Wr-YXf" id="kyh-G9-jHD"/>
+                        <outlet property="doneBtn" destination="BLL-0Q-bbH" id="sS1-1T-pOj"/>
+                        <segue destination="clv-aj-nL7" kind="unwind" identifier="unwindToHome" unwindAction="homeUnwindActionWithUnwindSegue:" id="eAj-iU-9m5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eSn-oX-gay" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="clv-aj-nL7" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="916" y="652"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
