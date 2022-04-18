@@ -91,8 +91,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="i5d-SQ-OsC">
-                                <rect key="frame" x="0.0" y="44" width="414" height="152"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="i5d-SQ-OsC">
+                                <rect key="frame" x="0.0" y="44" width="414" height="253.5"/>
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbI-q2-sWC">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -106,20 +106,54 @@
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HELLO LOGGED IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4U-Im-RVj">
-                                        <rect key="frame" x="0.0" y="54" width="414" height="44"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGISTROS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4U-Im-RVj">
+                                        <rect key="frame" x="0.0" y="54" width="414" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cU6-FJ-iRA">
-                                        <rect key="frame" x="0.0" y="108" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="84.5" width="414" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="tinted" title="Cerrar sesión"/>
                                         <connections>
                                             <action selector="signout:" destination="v2c-jU-Drn" eventType="touchUpInside" id="MsT-c3-4lH"/>
                                         </connections>
                                     </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ifu-vp-TUe">
+                                        <rect key="frame" x="0.0" y="125.5" width="414" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordCell" rowHeight="43" id="RFY-ZQ-8Bp" customClass="RecordTableViewCell" customModule="students_tracking" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44.5" width="414" height="43"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RFY-ZQ-8Bp" id="8jk-3Y-sHD">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erL-qx-j6m">
+                                                            <rect key="frame" x="20" y="11" width="374" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="erL-qx-j6m" firstAttribute="trailing" secondItem="8jk-3Y-sHD" secondAttribute="trailingMargin" id="RLX-DU-fHY"/>
+                                                        <constraint firstItem="erL-qx-j6m" firstAttribute="leading" secondItem="8jk-3Y-sHD" secondAttribute="leadingMargin" id="cIZ-Vz-atj"/>
+                                                        <constraint firstItem="erL-qx-j6m" firstAttribute="top" secondItem="8jk-3Y-sHD" secondAttribute="topMargin" id="frH-O2-gg6"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="dayLabel" destination="erL-qx-j6m" id="Voa-Ki-Coy"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="v2c-jU-Drn" id="5GT-uC-B8l"/>
+                                            <outlet property="delegate" destination="v2c-jU-Drn" id="2r5-fd-cQT"/>
+                                        </connections>
+                                    </tableView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -134,11 +168,12 @@
                     <navigationItem key="navigationItem" id="42I-id-8TN"/>
                     <connections>
                         <outlet property="signoutBtn" destination="cU6-FJ-iRA" id="oWL-lu-O4n"/>
+                        <outlet property="tableView" destination="Ifu-vp-TUe" id="69z-vM-g2p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PLP-E4-BSk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="917" y="-26"/>
+            <point key="canvasLocation" x="915.94202898550736" y="-26.116071428571427"/>
         </scene>
         <!--Signin View Controller-->
         <scene sceneID="x2H-9E-pBM">

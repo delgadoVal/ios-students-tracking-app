@@ -8,12 +8,18 @@
 import UIKit
 import FirebaseAuth
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var signoutBtn: UIButton!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.addSubview(self.tableView)
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         //let uid = UserDefaults.standard.value(forKey: "uid") as? String
         // Do any additional setup after loading the view.
@@ -38,6 +44,26 @@ class HomeViewController: UIViewController {
     }
     
     @IBAction func homeUnwindAction(unwindSegue: UIStoryboardSegue){}
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 3;
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell", for: indexPath) as! RecordTableViewCell;
+        
+        cell.dayLabel.text = "registro"
+
+        // Configure the cell...
+
+        return cell
+    }
     
     /*
     // MARK: - Navigation
