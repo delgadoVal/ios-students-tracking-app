@@ -16,6 +16,7 @@
 		3B3EB879280CCD2200C71208 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EB878280CCD2200C71208 /* UserModel.swift */; };
 		3B3EB87B280CF8E600C71208 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EB87A280CF8E600C71208 /* CreateViewController.swift */; };
 		3B3EB87D280D072000C71208 /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EB87C280D071F00C71208 /* RecordTableViewCell.swift */; };
+		3B3EB87F280D241000C71208 /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3EB87E280D241000C71208 /* RecordModel.swift */; };
 		3BBB7A6528063CA600C2E31B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB7A6428063CA600C2E31B /* ViewController.swift */; };
 		3BBB7A6828063CCD00C2E31B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB7A6728063CCD00C2E31B /* LoginViewController.swift */; };
 		3BBB7A6A28063CDE00C2E31B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBB7A6928063CDE00C2E31B /* HomeViewController.swift */; };
@@ -34,6 +35,7 @@
 		3B3EB878280CCD2200C71208 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3B3EB87A280CF8E600C71208 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
 		3B3EB87C280D071F00C71208 /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
+		3B3EB87E280D241000C71208 /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
 		3BBB7A6428063CA600C2E31B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3BBB7A6728063CCD00C2E31B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BBB7A6928063CDE00C2E31B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				3B3EB878280CCD2200C71208 /* UserModel.swift */,
+				3B3EB87E280D241000C71208 /* RecordModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				3B3EB876280CCCB700C71208 /* SigninViewController.swift in Sources */,
 				3BBB7A6D280656DF00C2E31B /* Constants.swift in Sources */,
 				3BF5A1892805174E00CDE093 /* SceneDelegate.swift in Sources */,
+				3B3EB87F280D241000C71208 /* RecordModel.swift in Sources */,
 				3B3EB879280CCD2200C71208 /* UserModel.swift in Sources */,
 				3BBB7A6A28063CDE00C2E31B /* HomeViewController.swift in Sources */,
 				3B3EB87D280D072000C71208 /* RecordTableViewCell.swift in Sources */,

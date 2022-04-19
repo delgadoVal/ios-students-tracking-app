@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -285,11 +286,59 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GVf-kf-9vP">
+                                <rect key="frame" x="0.0" y="76" width="414" height="492.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agregar Registro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AW0-F5-RDB">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="qld-5i-asD">
+                                        <rect key="frame" x="0.0" y="40.5" width="414" height="216"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Entrada:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMh-DB-6lG">
+                                                <rect key="frame" x="0.0" y="0.0" width="63.5" height="216"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZsD-aw-9Fe">
+                                                <rect key="frame" x="94" y="0.0" width="320" height="216"/>
+                                            </datePicker>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="vF9-lf-77Q">
+                                        <rect key="frame" x="0.0" y="276.5" width="414" height="216"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Salida: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZL-Lj-1SG">
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="216"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Zqc-qz-21C">
+                                                <rect key="frame" x="94" y="0.0" width="320" height="216"/>
+                                            </datePicker>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="qld-5i-asD" firstAttribute="leading" secondItem="GVf-kf-9vP" secondAttribute="leading" constant="20" id="3Dt-Sr-hKK"/>
+                                    <constraint firstItem="vF9-lf-77Q" firstAttribute="leading" secondItem="GVf-kf-9vP" secondAttribute="leading" constant="20" id="hPL-jl-PJs"/>
+                                    <constraint firstAttribute="trailing" secondItem="qld-5i-asD" secondAttribute="trailing" constant="20" id="ma9-2o-zUZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="vF9-lf-77Q" secondAttribute="trailing" constant="20" id="zlo-TH-6MQ"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qUb-wD-xmK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JY5-3n-Hn3" firstAttribute="top" secondItem="vXV-Rn-u73" secondAttribute="top" id="6j2-x4-Iew"/>
+                            <constraint firstItem="GVf-kf-9vP" firstAttribute="trailing" secondItem="qUb-wD-xmK" secondAttribute="trailing" id="NFP-zz-wIE"/>
+                            <constraint firstItem="GVf-kf-9vP" firstAttribute="top" secondItem="JY5-3n-Hn3" secondAttribute="bottom" constant="20" id="Vz2-GW-v9q"/>
+                            <constraint firstItem="GVf-kf-9vP" firstAttribute="leading" secondItem="qUb-wD-xmK" secondAttribute="leading" id="cSN-Z0-6KK"/>
                             <constraint firstItem="JY5-3n-Hn3" firstAttribute="leading" secondItem="vXV-Rn-u73" secondAttribute="leading" id="pkJ-Ch-V9t"/>
                             <constraint firstAttribute="trailing" secondItem="JY5-3n-Hn3" secondAttribute="trailing" id="yuJ-H7-imP"/>
                         </constraints>
@@ -297,6 +346,8 @@
                     <navigationItem key="navigationItem" id="Koe-dj-KMx"/>
                     <connections>
                         <outlet property="cancelBtn" destination="Efs-Wr-YXf" id="kyh-G9-jHD"/>
+                        <outlet property="checkinDate" destination="ZsD-aw-9Fe" id="i81-qv-9md"/>
+                        <outlet property="checkoutDate" destination="Zqc-qz-21C" id="SZO-bd-MpR"/>
                         <outlet property="doneBtn" destination="BLL-0Q-bbH" id="sS1-1T-pOj"/>
                         <segue destination="clv-aj-nL7" kind="unwind" identifier="unwindToHome" unwindAction="homeUnwindActionWithUnwindSegue:" id="eAj-iU-9m5"/>
                     </connections>
@@ -304,7 +355,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eSn-oX-gay" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="clv-aj-nL7" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="916" y="652"/>
+            <point key="canvasLocation" x="915.94202898550736" y="651.5625"/>
         </scene>
     </scenes>
     <resources>

@@ -7,11 +7,14 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var signoutBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    private lazy var dbRef : DatabaseReference = Database.database().reference().child("records/")
+    var records: [RecordModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +26,16 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         //let uid = UserDefaults.standard.value(forKey: "uid") as? String
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let userID = Auth.auth().currentUser?.uid
+        dbRef.child(userID!).observeSingleEvent(of: .value, with: { snapshot in
+            
+        })
+        
     }
     
     @IBAction func signout(_ sender: Any) {
@@ -52,7 +65,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4;
+        return records.count;
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
