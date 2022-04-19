@@ -12,5 +12,6 @@ struct Constants {
         static let home = "HomeViewController"
         static let login = "LoginViewController"
         static let signin = "SigninViewController"
+        static let profile = "ProfileViewController"
     }
 }

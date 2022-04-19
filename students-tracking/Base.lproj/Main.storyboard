@@ -93,12 +93,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="i5d-SQ-OsC">
-                                <rect key="frame" x="0.0" y="44" width="414" height="135.5"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <subviews>
                                     <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbI-q2-sWC">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                         <items>
-                                            <navigationItem leftItemsSupplementBackButton="YES" id="VI5-Aq-xEq">
+                                            <navigationItem title="Registros" leftItemsSupplementBackButton="YES" id="VI5-Aq-xEq">
                                                 <barButtonItem key="rightBarButtonItem" title="Agregar" image="plus" catalog="system" id="CHT-Gx-Z0K">
                                                     <connections>
                                                         <segue destination="Qng-ya-7cT" kind="show" id="IB5-8f-cN9"/>
@@ -107,25 +107,24 @@
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="REGISTROS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4U-Im-RVj">
-                                        <rect key="frame" x="0.0" y="64" width="414" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cU6-FJ-iRA">
-                                        <rect key="frame" x="0.0" y="104.5" width="414" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Cerrar sesión"/>
-                                        <connections>
-                                            <action selector="signout:" destination="v2c-jU-Drn" eventType="touchUpInside" id="MsT-c3-4lH"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ifu-vp-TUe">
-                                <rect key="frame" x="0.0" y="201" width="414" height="594"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tabBar contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="pN2-ND-NTl">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="pN2-ND-NTl" secondAttribute="height" multiplier="414:49" id="uLi-cZ-QOi"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem tag="1" title="Registros" image="list.dash.header.rectangle" catalog="system" id="Ka5-Xl-r9R"/>
+                                    <tabBarItem tag="2" title="Perfil" image="person" catalog="system" id="XVg-2d-kRC"/>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="tL5-x2-Vhn" id="2L3-x8-i96"/>
+                                </connections>
+                            </tabBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ifu-vp-TUe">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordCell" rowHeight="43" id="RFY-ZQ-8Bp" customClass="RecordTableViewCell" customModule="students_tracking" customModuleProvider="target">
@@ -175,14 +174,22 @@
                         <viewLayoutGuide key="safeArea" id="qYi-jp-Zq9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="pN2-ND-NTl" firstAttribute="top" secondItem="Ifu-vp-TUe" secondAttribute="bottom" id="5TS-0y-Jgz"/>
                             <constraint firstItem="i5d-SQ-OsC" firstAttribute="trailing" secondItem="qYi-jp-Zq9" secondAttribute="trailing" id="CDI-3v-xbV"/>
+                            <constraint firstItem="pN2-ND-NTl" firstAttribute="leading" secondItem="qYi-jp-Zq9" secondAttribute="leading" id="Cch-5p-gxR"/>
+                            <constraint firstItem="Ifu-vp-TUe" firstAttribute="leading" secondItem="qYi-jp-Zq9" secondAttribute="leading" id="K9d-6d-0j7"/>
+                            <constraint firstItem="Ifu-vp-TUe" firstAttribute="top" secondItem="i5d-SQ-OsC" secondAttribute="bottom" id="SKU-Wv-PTt"/>
                             <constraint firstItem="i5d-SQ-OsC" firstAttribute="top" secondItem="qYi-jp-Zq9" secondAttribute="top" id="Stj-bS-OuH"/>
                             <constraint firstItem="i5d-SQ-OsC" firstAttribute="leading" secondItem="qYi-jp-Zq9" secondAttribute="leading" id="VVx-B4-clx"/>
+                            <constraint firstItem="pN2-ND-NTl" firstAttribute="trailing" secondItem="qYi-jp-Zq9" secondAttribute="trailing" id="hiK-fR-2uG"/>
+                            <constraint firstItem="qYi-jp-Zq9" firstAttribute="bottom" secondItem="pN2-ND-NTl" secondAttribute="bottom" id="hyJ-Jd-H1a"/>
+                            <constraint firstItem="Ifu-vp-TUe" firstAttribute="trailing" secondItem="qYi-jp-Zq9" secondAttribute="trailing" id="tk0-gN-enC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="42I-id-8TN"/>
                     <connections>
-                        <outlet property="signoutBtn" destination="cU6-FJ-iRA" id="oWL-lu-O4n"/>
+                        <outlet property="homeItem" destination="Ka5-Xl-r9R" id="zen-nQ-8MC"/>
+                        <outlet property="tabBar" destination="pN2-ND-NTl" id="R1e-Xf-4Qq"/>
                         <outlet property="tableView" destination="Ifu-vp-TUe" id="RGF-ek-Y6O"/>
                     </connections>
                 </viewController>
@@ -272,7 +279,7 @@
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JY5-3n-Hn3">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                 <items>
-                                    <navigationItem leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="LLR-4T-NfE">
+                                    <navigationItem title="Agregar Registro" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="never" id="LLR-4T-NfE">
                                         <barButtonItem key="leftBarButtonItem" title="Cancelar" id="Efs-Wr-YXf">
                                             <connections>
                                                 <segue destination="clv-aj-nL7" kind="unwind" unwindAction="homeUnwindActionWithUnwindSegue:" id="qg5-nS-Mns"/>
@@ -289,7 +296,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="GVf-kf-9vP">
                                 <rect key="frame" x="0.0" y="76" width="414" height="492.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Agregar Registro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AW0-F5-RDB">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Registro de Entrada y Salida" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AW0-F5-RDB">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -357,8 +364,79 @@
             </objects>
             <point key="canvasLocation" x="915.94202898550736" y="651.5625"/>
         </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="cMC-4O-jOn">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="tL5-x2-Vhn" customClass="ProfileViewController" customModule="students_tracking" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="swp-0Y-Spe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="zoc-jO-lK8">
+                                <rect key="frame" x="0.0" y="44" width="414" height="135.5"/>
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h48-bK-IFu">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <items>
+                                            <navigationItem title="Perfil" leftItemsSupplementBackButton="YES" id="c6C-o5-on7"/>
+                                        </items>
+                                    </navigationBar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3y-Nf-huG">
+                                        <rect key="frame" x="0.0" y="64" width="414" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xug-cB-gSp">
+                                        <rect key="frame" x="0.0" y="104.5" width="414" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Cerrar Sesión"/>
+                                        <connections>
+                                            <action selector="logout:" destination="tL5-x2-Vhn" eventType="touchUpInside" id="UZE-nb-hxa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <tabBar contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hcj-1g-FA2">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hcj-1g-FA2" secondAttribute="height" multiplier="414:49" id="tIg-Cc-Krl"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem tag="1" title="Registros" image="list.dash.header.rectangle" catalog="system" id="0RH-f1-tWa"/>
+                                    <tabBarItem tag="2" title="Perfil" image="person" catalog="system" id="2mC-q0-LWj"/>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="tL5-x2-Vhn" id="oyp-Pr-73W"/>
+                                </connections>
+                            </tabBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tBT-3k-aqd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zoc-jO-lK8" firstAttribute="top" secondItem="tBT-3k-aqd" secondAttribute="top" id="3Ud-Z0-FCL"/>
+                            <constraint firstItem="Hcj-1g-FA2" firstAttribute="bottom" secondItem="tBT-3k-aqd" secondAttribute="bottom" id="4Zc-ht-kKh"/>
+                            <constraint firstItem="Hcj-1g-FA2" firstAttribute="leading" secondItem="tBT-3k-aqd" secondAttribute="leading" id="8WF-6J-QSj"/>
+                            <constraint firstItem="Hcj-1g-FA2" firstAttribute="trailing" secondItem="tBT-3k-aqd" secondAttribute="trailing" id="Mhr-Ly-FVN"/>
+                            <constraint firstItem="zoc-jO-lK8" firstAttribute="trailing" secondItem="tBT-3k-aqd" secondAttribute="trailing" id="i8M-0r-x1i"/>
+                            <constraint firstItem="zoc-jO-lK8" firstAttribute="leading" secondItem="tBT-3k-aqd" secondAttribute="leading" id="nxg-hG-L9F"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="b3y-Nf-huG" id="45r-MJ-z0x"/>
+                        <outlet property="profileItem" destination="2mC-q0-LWj" id="64V-J2-kxM"/>
+                        <outlet property="tabBar" destination="Hcj-1g-FA2" id="jMe-SX-XRL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ulv-Et-dw9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1789.8550724637682" y="-26.116071428571427"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="list.dash.header.rectangle" catalog="system" width="128" height="93"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

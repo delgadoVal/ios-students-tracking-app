@@ -9,7 +9,9 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITabBarDelegate {
+    @IBOutlet weak var homeItem: UITabBarItem!
+    @IBOutlet weak var tabBar: UITabBar!
     
     @IBOutlet weak var signoutBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -24,7 +26,22 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        self.tabBar.delegate = self
+        self.tabBar.selectedItem = homeItem
         // Do any additional setup after loading the view.
+    }
+    
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if(item.tag == 1) {
+            let home = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.home) as? HomeViewController
+            view.window?.rootViewController = home
+            view.window?.makeKeyAndVisible()
+        } else if(item.tag == 2) {
+            let profile = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.profile) as? ProfileViewController
+            view.window?.rootViewController = profile
+            view.window?.makeKeyAndVisible()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,18 +69,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         })
     }
     
-    @IBAction func signout(_ sender: Any) {
-        do {
-            try Auth.auth().signOut()
-            self.showLogin()
-        } catch {
-            //Error
-        }
-    }
-    
-    func showLogin() {
-        let login = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.login) as? LoginViewController
-        view.window?.rootViewController = login
+    @IBAction func showProfile(_ sender: Any) {
+        let profile = storyboard?.instantiateViewController(withIdentifier: Constants.Storyboard.profile) as? ProfileViewController
+        view.window?.rootViewController = profile
         view.window?.makeKeyAndVisible()
     }
     
