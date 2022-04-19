@@ -37,9 +37,6 @@ class SigninViewController: UIViewController {
                 result, error in
                 if let result = result, error == nil {
                     let uid = result.user.uid
-                    let session = UserDefaults.standard
-                    session.set(uid, forKey: "uid")
-                    session.synchronize()
                     
                     self.dbRef.child(uid).setValue(newUser.getFirebaseStructure())
                     

@@ -14,12 +14,20 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var signinBtn: UIButton!
-    
+    weak var handle: AuthStateDidChangeListenerHandle?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        handle = Auth.auth().addStateDidChangeListener { [weak self] (auth, user) in
+            if ((user) != nil) {
+                self?.showHome()
+            }
+        }
     }
 
     @IBAction func login(_ sender: Any) {
@@ -29,11 +37,7 @@ class LoginViewController: UIViewController {
         if (email != nil && password != nil) {
             Auth.auth().signIn(withEmail: email!, password: password!) {
                 result, error in
-                if let result = result, error == nil {
-                    let uid = result.user.uid
-                    let session = UserDefaults.standard
-                    session.set(uid, forKey: "uid")
-                    session.synchronize()
+                if result != nil, error == nil {
                     self.showHome()
                 }
             }

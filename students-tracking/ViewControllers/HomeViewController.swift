@@ -13,6 +13,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     @IBOutlet weak var signoutBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
     private lazy var dbRef : DatabaseReference = Database.database().reference().child("records/")
     var records: [RecordModel] = []
     
@@ -23,8 +24,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        
-        //let uid = UserDefaults.standard.value(forKey: "uid") as? String
         // Do any additional setup after loading the view.
     }
     
@@ -54,9 +53,6 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     @IBAction func signout(_ sender: Any) {
-        let session = UserDefaults.standard
-        session.removeObject(forKey: "uid")
-        
         do {
             try Auth.auth().signOut()
             self.showLogin()
