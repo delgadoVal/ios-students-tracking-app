@@ -31,11 +31,26 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.getRecords()
+    }
+    
+    func getRecords() {
+        self.records = []
+        
         let userID = Auth.auth().currentUser?.uid
         dbRef.child(userID!).observeSingleEvent(of: .value, with: { snapshot in
-            
+            let allChildren = snapshot.children.allObjects as! [DataSnapshot]
+            for child in allChildren {
+                let record = RecordModel(
+                    day: child.childSnapshot(forPath: "day").value as! String,
+                    minutes: child.childSnapshot(forPath: "minutes").value as! Int,
+                    checkin: child.childSnapshot(forPath: "checkin").value as! String,
+                    checkout: child.childSnapshot(forPath: "checkout").value as! String
+                )
+                self.records.append(record)
+            }
+            self.tableView.reloadData()
         })
-        
     }
     
     @IBAction func signout(_ sender: Any) {
@@ -56,7 +71,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.window?.makeKeyAndVisible()
     }
     
-    @IBAction func homeUnwindAction(unwindSegue: UIStoryboardSegue){}
+    @IBAction func homeUnwindAction(unwindSegue: UIStoryboardSegue){
+        self.getRecords()
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -65,16 +82,15 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return records.count;
+        return self.records.count;
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let record = self.records[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "recordCell", for: indexPath) as! RecordTableViewCell;
         
-        cell.dayLabel.text = "registro"
-        cell.hoursLabel.text = "horas"
-
-        // Configure the cell...
+        cell.dayLabel.text = "Día: " + record.day
+        cell.hoursLabel.text = "Horas: " + String(format: "%.2f", Double(record.minutes) / 60)
 
         return cell
     }

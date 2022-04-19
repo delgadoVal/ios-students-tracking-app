@@ -24,7 +24,7 @@ class RecordModel: NSObject {
         let object: [String: Any] = [
             "day": self.day as NSObject,
             "minutes": self.minutes as NSObject,
-            "checking": self.checkin as NSObject,
+            "checkin": self.checkin as NSObject,
             "checkout": self.checkout as NSObject
         ]
         return object
